@@ -1,0 +1,34 @@
+<h1>Cat me up!</h1>
+
+
+<form action="<%=cats_url%>" method="post">
+  <label>Name
+    <input type="text" name="cat[name]">
+  </label>
+  <br>
+  <label>Sex
+    <select name="cat[sex]">
+      <% ['M', 'F'].each do |sex| %>
+        <option value="<%= sex %>"><%= sex %></option>
+      <% end %>
+    </select>
+  </label>
+  <br>
+  <label>Birth Date
+    <input type="date" name="cat[birth_date]">
+  </label>
+  <br>
+  <label>Color
+  <select name="cat[color]">
+    <option value="" selected disabled>Please Select</option>
+    <% Cat::COLORS.each do |color_choice| %>
+      <option value="<%= color_choice %>"><%= color_choice.capitalize %></option>
+    <% end %>
+  </select>
+  </label>
+  <br>
+  <label>Description
+    <textarea name="cat[description]" cols="45" rows="4"></textarea>
+  </label>
+  <input value="MAKE IT SO" type="submit">
+</form>
